@@ -14,4 +14,4 @@
 
 - [x] **Experiencia responsive.** La interfaz fue comprobada en Preview mediante Chromium para escritorio y móvil, y se corrigió el solapamiento detectado en la cabecera móvil.
 
-- [ ] **Integración de código.** Integrar el código de la implementación en el repositorio GitHub existente `MrChorusman/AAH_download`, respetando su estado y configuración actual.
+- [x] **Integración de código.** El código se integró en `MrChorusman/AAH_download` en la rama `main` y se verificó que el commit remoto coincide con el commit local.
