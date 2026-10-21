@@ -1,26 +1,18 @@
-# Análisis público de referencia — 21 de octubre de 2026
+# Análisis de la referencia (REA)
 
-El análisis se limitó a contenido accesible públicamente. La referencia `tech-trans.com.pl` se presenta actualmente como una experiencia de descubrimiento y descarga de contenido, pese a que su dominio no lo anticipa. No se usan su marca, textos, código, recursos ni identidad visual.
+## Evidencia visual y estructural
 
-## Evidencia con REA
+- La portada usa una columna estrecha, una cabecera oscura compacta y una tarjeta de búsqueda blanca superpuesta sobre el cambio de fondo; tras el buscador incluye contenido explicativo y listas de medios.
+- El buscador está etiquetado como «Search keyword or paste a YouTube link», con campo, botón Search y un botón para pegar desde el portapapeles.
+- La jerarquía simple de buscador y resultados inspiró la estructura compacta propia de AAH. La web nueva conserva una composición de herramienta y cambia textos, identidad y comportamiento.
 
-Se utilizó REA 6.7.0 con Chromium aislado y un perfil temporal para cargar únicamente la portada pública de `https://tech-trans.com.pl/`. El escenario de sólo lectura realizó una navegación a 1440×960 con movimiento reducido y sin service workers. Se revisaron URL, DOM, accesibilidad e historial; no se solicitaron cuerpos de respuesta de red ni datos privados.
+## Observación funcional acotada con REA
 
-REA confirmó una estructura pública de portada en capas y accesible mediante navegador. La herramienta no infiere causalidad entre eventos, no conserva cuerpos de red salvo que se soliciten y no demuestra el funcionamiento de sistemas no visibles. Las capturas detalladas se mantuvieron fuera del repositorio de entrega para no incorporar contenido ajeno innecesario.
+REA cargó `https://tech-trans.com.pl/` en Chromium aislado y capturó su DOM, accesibilidad, URLs e historial. El formulario observado es `POST /convert/`, con el campo `q`; una búsqueda de prueba por «ambient music» se resolvió en la ruta `/explore/ambient-music/`, que muestra resultados con tarjetas y controles de conversión asociados. No se hizo clic en controles Download ni se guardó ningún medio.
 
-## Patrones observables que sí sirven de inspiración
+Esta evidencia confirma el paso búsqueda → página de resultados del servicio de referencia. No demuestra que el comportamiento de descarga sea apropiado para reutilizar, ni incluye una inspección de sus solicitudes/servidor privados. La versión AAH, según el alcance confirmado, no copiará ese endpoint ni extraerá vídeos de YouTube: su formulario abrirá inmediatamente la página oficial de resultados de YouTube en otra pestaña y dejará un enlace alternativo visible. Su conversor funciona sólo con archivos locales que la persona pueda usar legítimamente.
 
-La página orienta al visitante hacia una acción principal desde la cabecera. Después organiza el contenido en capas: propuesta inicial, elementos destacados, explicación del proceso, preguntas frecuentes y enlaces secundarios. Los textos de apoyo anticipan dudas frecuentes y el pie de página concentra enlaces de confianza y contacto.
+## Referencias
 
-## Adaptación propia para AAH Download
-
-AAH Download se construye como una presencia corporativa para un equipo que diseña experiencias de descubrimiento y distribución digital. En lugar de replicar un convertidor o los textos del sitio de referencia, presenta una propuesta de valor, soluciones, proceso de colaboración, principios, preguntas frecuentes y una vía de contacto. La composición es editorial y distintiva, con una estética azul noche de alto contraste y acentos lima.
-
-## Limitaciones y cumplimiento
-
-Este análisis no implica acceso a código privado, elusión de controles ni extracción de activos. Las conclusiones se derivan de la estructura y el contenido que el sitio expone públicamente.
-
-## Fuentes
-
-- https://tech-trans.com.pl/
-- https://github.com/morluto/rea
+- Sitio observado con REA: <https://tech-trans.com.pl/>.
+- Repositorio de REA indicado por la persona usuaria: <https://github.com/morluto/rea>.

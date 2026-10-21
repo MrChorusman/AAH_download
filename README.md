@@ -1,27 +1,24 @@
 # AAH Download
 
-Sitio corporativo estático para AAH Download. La interfaz propone una forma clara de presentar soluciones de descubrimiento y entrega de contenido, con una identidad propia y sin reutilizar textos, marca, código ni recursos de la web analizada como referencia.
+Herramienta personal de dos pasos separados: permite buscar en YouTube y abrir sus resultados oficiales; además, convierte archivos locales de audio o vídeo a MP3 cuando la persona usuaria tiene autorización para utilizarlos. No descarga ni extrae medios de YouTube.
 
 ## Ejecutar localmente
 
+Requiere Node.js 22.12 o posterior y pnpm 11.25.0:
+
 ```bash
-python3 -m http.server 3000 --bind 0.0.0.0 -d site
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-Abre `http://127.0.0.1:3000`. La página pública y el manifiesto de rutas se sirven desde `site/`.
+Abre `http://localhost:3000`. Para compilar el sitio estático ejecuta `pnpm build`; Vite escribe `dist/`.
 
-## Estructura
+## Conversión
 
-- `site/index.html`: contenido, metadatos y estructura accesible.
-- `site/styles.css`: sistema visual responsive.
-- `site/app.js`: menú móvil, animaciones progresivas y preparación de borradores de contacto.
-- `site/manus-routes.json`: declaración de rutas de Preview.
-- `docs/reference-analysis.md`: síntesis del análisis público realizado con REA.
+La conversión usa FFmpeg.wasm en el navegador. Los archivos seleccionados no se envían al servidor. La primera conversión descarga el núcleo WebAssembly desde jsDelivr (aprox. 31 MB). El límite de entrada es 100 MB; la velocidad y la memoria disponible dependen del navegador y el dispositivo. El resultado es MP3 a 320 kb/s CBR con el ajuste de LAME de mayor calidad disponible. Una conversión con pérdida no puede mejorar la calidad de la fuente. El formulario pide confirmar que se tiene autorización sobre el archivo.
 
-## Contacto
+Al enviar una búsqueda de texto se abre inmediatamente la página oficial `youtube.com/results` en otra pestaña; al pegar una URL de vídeo, se abre el vídeo en YouTube. Si el navegador bloquea la pestaña, queda visible un enlace alternativo. No se consulta ni extrae el flujo multimedia, y la búsqueda no necesita una clave API.
 
-El formulario no publica ni envía mensajes automáticamente. Tras validar los campos, prepara un borrador de GitHub Issue que la persona usuaria revisa y confirma en `MrChorusman/AAH_download`. Si se habilita un correo o CRM propio, se puede sustituir ese flujo en `site/app.js` y `site/index.html`.
+## Archivos
 
-## Publicación
-
-La configuración de build declara `site/` como salida estática. Antes de asociar un dominio definitivo, configura las URL canónicas y los metadatos sociales absolutos.
+`site/index.html`, `site/styles.css` y `site/app.js` contienen la interfaz. `site/public/manus-routes.json` declara la ruta `/`. `vite.config.js` define el servidor de desarrollo y el build. `docs/implementation-notes.md` registra fuentes y decisiones del conversor.

@@ -5,3 +5,5 @@ docs/rea-*-scenario.json
 # Archivos del sistema y herramientas
 .DS_Store
 Thumbs.db
+node_modules/
+dist/
