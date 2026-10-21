@@ -1,0 +1,7 @@
+# Evidencia y escenarios efímeros de REA usados durante análisis y pruebas
+docs/rea-*-capture.json
+docs/rea-*-scenario.json
+
+# Archivos del sistema y herramientas
+.DS_Store
+Thumbs.db
