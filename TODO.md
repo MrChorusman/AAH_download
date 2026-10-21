@@ -16,7 +16,7 @@ El proyecto es personal, sin finalidad educativa ni explotación comercial, seg�
 
 - [x] **Validación real.** Probar búsqueda mediante consulta y URL de YouTube sin activar descarga; convertir en Chromium un archivo de audio de prueba y un archivo de vídeo local de prueba con audio; confirmar que el MP3 descargado puede analizarse y decodificarse; comprobar el caso de vídeo sin audio, el rechazo de extensión y que el proyecto sigue siendo utilizable en un viewport móvil de 390 px.
 
-- [ ] **Sincronización del código.** Tras los cambios y sus pruebas, sincronizar el código validado con `MrChorusman/AAH_download` en `main`, sin reescribir historial ni sobrescribir cambios concurrentes.
+- [x] **Sincronización del código.** Tras los cambios y sus pruebas, sincronizar el código validado con `MrChorusman/AAH_download` en `main`, sin reescribir historial ni sobrescribir cambios concurrentes.
 
 ## Entrega anterior conservada
 
